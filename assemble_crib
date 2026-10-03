@@ -1,0 +1,70 @@
+Registers
+
+64 b | 32 b | 16 b | 8 b |
+----------------------------------------------
+rax  | eax  | ax   | al  | Retunrn func result
+----------------------------------------------
+rdi  | edi  | di   | dil | 1 func arg
+----------------------------------------------
+rsi  | esi  | si   | sil | 2 func arg
+----------------------------------------------
+rdx  | edx  | dx   | dl  | 3 func arg
+----------------------------------------------
+r8   | r8d  | r8w  | r8b | 4 func arg
+----------------------------------------------
+r9   | r9d  | r9w  | r9b | 5 func arg
+----------------------------------------------
+rsp  | esp  | sp   | spl | Stack pointer
+----------------------------------------------
+rip  | -    | -    | -   | Instruction pointer
+
+
+---
+Basic
+
+- mov dst, src         # Copy from src to dst (Move)
+- lea dst, [src]       # Calculate address from memory but not read from it.
+Exmp: lea rax, [rdi + rsi * 4 + 8]
+- add dst, src         # Add: dst = dst + src
+- sub dst, src         # Subtract: dst = dst - src
+- imul dst, src        # Signed multiply
+- inc reg / dec reg    # Increment / Decrement: +1 / -1
+- ret                  # Return from func.
+
+
+---
+Compare instruction (adds RFLAGS)
+
+- cmp a, b             # Compare: a - b. Result not returning, add flags ( = 0; > 0; overflow etc)
+- test a, b            # Test; do bite AND: a & b. test rax, rax - check if rax eq 0 or negative
+
+
+---
+Conditions j*
+
+For signed (i32, i64)             | For unsigned (u32, u64)
+--------------------------------------------------------------------
+jg  = Jump if Greater >           | ja  = Jump if Above >
+jge = Jump if Greater or Equal >= | jae = Jump if Above or Equal >=
+jl  = Jump if Less <              | jb  = Jump if Below <
+jle = Jump if Less or Equal <=    | jbe = Jump if Below or Equal <=
+
+jmp       = Unconditional Jump (always jump)
+je / jz   = Jump if Equal / Jump if Zero 
+jne / jnz = Jump if Not Equal / Jump if Not Zero
+js / jns  = Jump if Sign / Not Sign
+
+
+---
+Intel Syntax
+
+[ base + index * scale + displacement ]
+
+Example: [ rbx + rcx * 8 + 16 ]
+take address from rbx, add rcx * 8 and add 16. Then read/write on this address
+
+QWORD PTR [rax] indicates size
+- BYTE PTR  = 1 byte
+- WORD PTR  = 2 bytes
+- DWORD PTR = 4 bytes
+- QWORD PTR = 8 bytes

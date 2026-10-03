@@ -1,0 +1,61 @@
+# ==============================================================================
+# Git Ignore for Learning Workspace (Zig, Low-Level, OpenTofu / Terraform)
+# ==============================================================================
+
+# --- Books & Heavy Media (Copyrighted / Large Binaries) ---
+*.pdf
+*.epub
+*.mobi
+*.djvu
+
+# --- Zig & C / Assembly Artifacts ---
+# Object files and assembly dumps
+*.o
+*.obj
+*.s
+
+# Zig cache & build outputs
+zig-cache/
+zig-out/
+.zig-cache/
+
+# Executable binaries
+*.exe
+*.out
+
+# --- OpenTofu / Terraform ---
+# Local cache and downloaded providers/modules (can be hundreds of megabytes)
+**/.terraform/
+
+# State files (CRITICAL: contain infrastructure state and potentially secrets/passwords)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash logs
+crash.log
+crash.*.log
+
+# CLI configuration and plan files
+*.tfplan
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# NOTE on .terraform.lock.hcl:
+# In production, .terraform.lock.hcl is usually committed to ensure consistent provider versions.
+# If you want to keep it tracked, leave it unignored. If you want a purely clean repo, uncomment:
+# .terraform.lock.hcl
+
+# --- OS & Editor Metadata ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
