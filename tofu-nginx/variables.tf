@@ -25,9 +25,13 @@ variable "environments" {
       enabled = true
       external_port = 8002
     }
-    stage = {
+    stage1 = {
       enabled = false
       external_port = 8003
+    }
+    stage2 = {
+      enabled = true
+      external_port = 8004
     }
   }
 }
