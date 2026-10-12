@@ -46,5 +46,7 @@ Tone and depth: Exhaustive, technically rigorous, production-grade explanation w
 | **2026-10-03** | OpenTofu: Loops & Conditions (count and for_each) | `[[OpenTofu & Циклы и условия (count и for_each)]]` | count index shift, for_each on map/set, ternary operator, filter comprehension if with lookup, dynamic outputs, moved block refactor |
 | **2026-10-09** | x86-64 Call Stack, Structures & Memory Allocation (CS:APP & Zig) | `[[x86-64 & Стек вызовов, структуры и аллокация памяти (CSAPP & Zig)]]` | System V ABI (6 args, %rax, stack), Caller vs Callee-saved, 16-byte stack alignment, Red Zone, struct padding & alignment, Buffer Overflow & canary/NX/ASLR, explicit allocators in Zig (DebugAllocator), ArrayList unmanaged, defer/errdefer, Linux mmap/munmap demand paging & strace |
 | **2026-10-10** | OpenTofu: Remote Backend & State Locking (S3 & MinIO) | `[[OpenTofu & Remote Backend и State Locking (S3 и MinIO)]]` | S3 backend, MinIO S3 API, path-style addressing, S3 conditional writes, state migration (-migrate-state), state locking (.tflock, HTTP 412), disaster recovery (force-unlock) |
+| **2026-10-12** | x86-64 Memory Hierarchy, Caching & Locality (CS:APP & Zig) | `[[x86-64 & Иерархия памяти, кэширование и локальность (CSAPP & Zig)]]` | SRAM vs DRAM physical cells, Memory Latency Gap, Principle of Locality (temporal vs spatial), 64-byte Cache Line, Row-Major Order $(i \cdot M + j) \cdot \text{size}$, Row vs Column traversal 20x gap, Zig 0.16 Linux vDSO monotonic clock, False Sharing & align(64) |
+
 
 
