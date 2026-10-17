@@ -38,6 +38,7 @@ module "app" {
     if lookup(value, "enabled", true)
   }
 
+  env_name       = each.key
   container_name = "nginx-${each.key}"
   external_port  = each.value.external_port
 } 

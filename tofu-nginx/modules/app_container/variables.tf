@@ -19,3 +19,7 @@ variable "internal_port" {
   type = number
   default = 80
 }
+
+variable "env_name" {
+  type = string
+}

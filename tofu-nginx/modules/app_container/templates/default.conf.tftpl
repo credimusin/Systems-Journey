@@ -1,0 +1,19 @@
+server {
+	listen ${port};
+	server_name ${server_name};
+
+	add_header X-Environment "${env_name}" always;
+	%{~ if env_name == "dev" ~}
+	add_header X-Debug-Mode "enable" always;
+	%{~ endif ~}
+
+	location / {
+		root  /usr/share/nginx/html;
+		index index.html index.htm;
+	}
+
+	location /info {
+		default_type text/plain;
+		return 200 "Environment: ${env_name}\nServer: ${server_name}\nPort: ${port}\n";
+	}
+}
