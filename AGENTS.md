@@ -10,9 +10,9 @@ This repository (`/var/home/bmo/Devs/Learning`) is a long-term engineering labor
 ### Source books (in the repo root)
 | Stage | Book | File | Edition note |
 | :--- | :--- | :--- | :--- |
-| 1 | Bryant, O'Hallaron — *Computer Systems* (CS:APP) | `Brayant_Kompyuternye-sistemy-arhitektura-i-programmirovanie.pdf` | Russian translation of the 3rd ed. |
-| 2 | Skiena — *The Algorithm Design Manual* | `Skiena_The-Algorithm-Design-Manual.pdf` | 3rd ed. (English) |
-| 3 | Kleppmann — *Designing Data-Intensive Applications* | `Kleppman_Vysokonagruzhennye-prilozheniya-Programmirovanie-masshtabirovanie-podderzhka.pdf` | Russian translation of the 1st ed. (12 chapters). Do not use 2nd-ed chapter numbers. |
+| 1 | Bryant, O'Hallaron — *Computer Systems* (CS:APP) | `books/Brayant_Kompyuternye-sistemy-arhitektura-i-programmirovanie.pdf` | Russian translation of the 3rd ed. |
+| 2 | Skiena — *The Algorithm Design Manual* | `books/Skiena_The-Algorithm-Design-Manual.pdf` | 3rd ed. (English) |
+| 3 | Kleppmann — *Designing Data-Intensive Applications* | `books/Kleppman_Vysokonagruzhennye-prilozheniya-Programmirovanie-masshtabirovanie-podderzhka.pdf` | Russian translation of the 1st ed. (12 chapters). Do not use 2nd-ed chapter numbers. |
 
 - `PLAN.md` — curriculum and the **Book Coverage Map** (source of truth for what is covered).
 - `WILT.md` — learning log (one row per session).
@@ -109,22 +109,22 @@ Run it when the user says the session is over, before the wrap-up.
 
 ---
 
-## 6. Session Wrap-Up
+## 6. Session Wrap-Up & Course Module Packaging
 
 Trigger: the user says the session is over ("конец", "закончили", "wrap up"). Do not guess the end mid-session. Do not invoke the global `summary` skill; follow §6.1 directly.
 
 Order:
 1. Blitz (§5.2).
-2. Session note to NEN (§6.1).
+2. Session note to NEN (§6.1) structured as a **self-contained course module**, plus adding its link to the track MOC (`Архитектура компьютеров.md`, `Инфраструктура как код (OpenTofu).md`, etc.).
 3. New row in `WILT.md` (date, topic, note link, core concepts, weak spots).
-4. Update statuses in the `PLAN.md` Coverage Map and the current sprint.
+4. Update statuses in the `PLAN.md` Coverage Map, the current sprint, and (when an infrastructure/Stage 3 topic maps to a Superman item) mark or link the corresponding item in `/var/home/bmo/Documents/NEN/90-99 Archive/96 - Project Superman/23 DevOps & Infrastructure Learning/23.00 DevOps - Table of contents.md`. Also sync updated `PLAN.md`, `WILT.md`, `AGENTS.md` to `/var/home/bmo/Documents/NEN/10-19 Projects/17 Systems Journey/Repo files v2/`.
 5. In chat: one line per item — what was written and where.
 
-### 6.1 Session note
-- Directory: `/var/home/bmo/Documents/NEN/00-09 System & Inbox/00 Inbox/`
+### 6.1 Session note (Course-Ready Module Schema)
+- Directory: `/var/home/bmo/Documents/NEN/10-19 Projects/17 Systems Journey/<track>/`, where `<track>` is `CSAPP & Zig` or `OpenTofu` (create a new track folder with its own MOC when a new book starts).
 - Filename: `<Technology> & <Topic>.md` (Russian topic), e.g. `x86-64 & Иерархия памяти, кэширование и локальность (CSAPP & Zig).md`.
 - One note per session topic. If a session covers two unrelated tracks (e.g. CS:APP + OpenTofu), write two notes.
-- Language: Russian text, English section headers, no emojis. Complete and rigorous, but no filler.
+- Language: Russian text, English section headers, no emojis. Complete and rigorous, structured so the note can later serve directly as a lesson chapter in an authorial engineering course.
 
 Frontmatter:
 
@@ -133,20 +133,21 @@ Frontmatter:
 created: "YYYY-MM-DD HH:MM"
 tags:
   - learning
-  - <topic-tags>          # csapp, zig, x86-64, opentofu, ...; add devops only for infra topics
-parent: "[[<MOC>]]"       # e.g. [[Архитектура компьютеров]]
+  - course-module
+  - <topic-tags>          # csapp, skiena, ddia, zig, x86-64, opentofu, k8s, ...; add devops for infra/Stage 3
+parent: "[[<MOC>]]"       # track MOC: [[Архитектура компьютеров]], [[Инфраструктура как код (OpenTofu)]], [[Skiena - Table of Contents]], or [[Kleppmann - Table of Contents]]
 source: "Sprint YYYY-MM-DD; <book> <sections>"
 ---
 ```
 
 Sections:
 1. `# <Title>`
-2. `## Concept & Purpose (ELI5)` — problem solved, core mental model.
-3. `## Under the Hood (How it works)` — mechanics, formulas, diagrams from the book (cite section/page).
-4. `## Practice & Implementation` — the user's own final code and commands (after review), with short review remarks. Never agent-authored solutions.
-5. `## Senior / DevOps Insights & Pro Tips` — pitfalls, production patterns.
-6. `## Weak Spots` — blitz mistakes with the correct answers.
-7. `## Relations` — wikilinks to related notes and the parent MOC.
+2. `## Concept & Purpose (ELI5)` — engineering hook (what real-world problem this solves) and intuitive mental model.
+3. `## Under the Hood (How it works)` — deep mechanics, math/proofs, formulas, diagrams from the book (cite section/page).
+4. `## Practice & Implementation` — starts with a concise **Постановка задачи (Lab Specification)** (2-4 lines describing what a student must build and verify), followed by the user's own final code/configs and benchmark results (after review), with short review remarks. Never agent-authored solutions.
+5. `## Senior / DevOps Insights & System Design` — production pitfalls, hardware/OS/network trade-offs, and (for Stage 3 / Infra topics) the **System Design & $10k Interview Case** defense.
+6. `## Weak Spots (Blitz Corrections)` — blitz questions where mistakes occurred with rigorous one-line answers (serves as the end-of-module self-check).
+7. `## Relations` — wikilinks to related session notes, pre-generated book notes (`42.02` / `42.03`), `[[23.00 DevOps - Table of contents]]` items, and the parent MOC.
 
 ---
 
