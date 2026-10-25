@@ -1,0 +1,45 @@
+name: "OpenTofu CI"
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'tofu-nginx/**'
+      - '.github/workflows/tofu-ci.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'tofu-nginx/**'
+      - '.github/workflows/tofu-ci.yml'
+
+jobs:
+  tofu:
+    name: "OpenTofu"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./tofu-nginx
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.11.5
+
+      - name: Setup Linter
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: TF Formater
+        run: tofu fmt -check
+
+      - name: Tofu Init
+        run: tofu init -backend=false
+
+      - name: Tofu Validate
+        run: tofu validate
+
+      - name: Tofu Linter
+        run: tflint --init && tflint --recursive

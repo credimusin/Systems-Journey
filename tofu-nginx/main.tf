@@ -6,15 +6,15 @@ terraform {
   }
 
   backend "s3" {
-    bucket                      = "tofu-state"
-    key                         = "dev/teraform.tfstate"
-    region                      = "us-east-1"
-    endpoints                   = {
-                                  s3 = "http://localhost:9000"
-                                }
+    bucket = "tofu-state"
+    key    = "dev/teraform.tfstate"
+    region = "us-east-1"
+    endpoints = {
+      s3 = "http://localhost:9000"
+    }
 
-    access_key                  = "minioadmin"
-    secret_key                  = "minioadmin"
+    access_key = "minioadmin"
+    secret_key = "minioadmin"
 
     skip_credentials_validation = true
     skip_requesting_account_id  = true
@@ -22,8 +22,8 @@ terraform {
     skip_region_validation      = true
     skip_s3_checksum            = true
 
-    use_path_style              = true
-    use_lockfile                = true
+    use_path_style = true
+    use_lockfile   = true
   }
 }
 
@@ -32,7 +32,7 @@ provider "docker" {
 }
 
 module "app" {
-  source   = "./modules/app_container"
+  source = "./modules/app_container"
   for_each = {
     for key, value in var.environments : key => value
     if lookup(value, "enabled", true)
@@ -41,4 +41,4 @@ module "app" {
   env_name       = each.key
   container_name = "nginx-${each.key}"
   external_port  = each.value.external_port
-} 
+}

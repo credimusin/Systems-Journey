@@ -1,0 +1,38 @@
+name: "OpenTofu Drift Detection"
+
+on:
+  workflow_dispatch: ###
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  drift:
+    name: "Detect Drift"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./tofu-nginx
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.11.5
+
+      - name: Tofu Init
+        run: tofu init -backend=false
+        
+      - name: Tofu Check Drift
+        run: |
+          exit_code=0
+          tofu plan -detailed-exitcode -no-color || exit_code=$?
+
+          if [ $exit_code -eq 0 ]; then
+            echo "No drift detected. Infrastructure matches code."
+          elif [ $exit_code -eq 2 ]; then
+            echo "::warning:: Infrastructure drift detected!"
+            exit 2
+          else
+            echo "::error:: Plan execution failed!"
+            exit 1
+          fi
