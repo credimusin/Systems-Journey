@@ -1,7 +1,9 @@
 terraform {
+  required_version = ">= 1.8.0"
   required_providers {
     docker = {
-      source = "kreuzwerker/docker"
+      source  = "kreuzwerker/docker"
+      version = "~> 4.0"
     }
   }
 
@@ -41,4 +43,6 @@ module "app" {
   env_name       = each.key
   container_name = "nginx-${each.key}"
   external_port  = each.value.external_port
+  internal_port  = var.internal_port
+  nginx_image    = var.nginx_image
 }
