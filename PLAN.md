@@ -316,8 +316,8 @@ Independent of CS:APP weekday sprints. Covers `[[23.00 DevOps - Table of content
 | I4 | `count`, `for_each`, conditionals, dynamic expressions | `23.21.2` | Done |
 | I5 | Remote S3 backend (MinIO), state locking, state migration | `23.21.1` | Done |
 | I6 | `templatefile`, volumes, persistent storage | `23.21.2`, `23.31` | Done |
-| I7 | CI pipeline for OpenTofu: fmt, validate, lint, drift detection | `23.41.1`, `23.83.1` | Next |
-| I8 | Lifecycle (`create_before_destroy`, `prevent_destroy`), `-parallelism` | `23.21` | Planned |
+| I7 | CI pipeline for OpenTofu: fmt, validate, lint, drift detection | `23.41.1`, `23.83.1` | Done |
+| I8 | Lifecycle (`create_before_destroy`, `prevent_destroy`), `-parallelism` | `23.21` | Next |
 | I9 | Secrets: `TF_VAR_*`, sensitive values, state encryption | `23.21`, `23.41.3` | Planned |
 | I10 | Container internals: namespaces, cgroups (pairs with CS:APP Ch. 8-9) | `23.11.1`, `23.11.2` | Planned |
 | I11 | Network virtualization: netns, veth, bridges, iptables/nftables (pairs with CS:APP Ch. 8-10) | `23.13.1`, `23.31.3` | Planned |
