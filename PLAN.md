@@ -52,18 +52,15 @@ Developing Staff/Senior-level engineering intuition at the intersection of:
 - **S1W6** — Ch. 6 Memory Hierarchy (storage, locality, caching S/E/B, write policies, blocking/tiling). Zig row/col & tiled matrix multiplication. — **Done**
 - **S1W7** — Ch. 4 Processor Architecture & Hazards (Y86-64, PIPE, Forwarding, Load-Use). Zig decoder & hazard detector. — **Done**
 - **S1W8** — Ch. 5.1-5.9 Optimizing Performance (Out-of-order, latency vs throughput, loop unrolling, multiple accumulators). Zig 4x4 benchmark. — **Done**
+- **S1W9** — Ch. 5.10-5.14 + Ch. 2.4 Optimizing Performance II & Floating Point (Register spilling, non-associativity of float, SIMD `@Vector`, instruction decoding `vaddps`/`vaddss`). — **Done**
 
 ### Current
-- **S1W9: Optimizing Performance II — Ch. 5.10-5.14 + Ch. 2.4 Floating point** (pp. 524-544, 135-151)
-  - *Theory*: Register spilling, branch prediction penalty, memory performance, profiling (5.14). IEEE 754: format, rounding, why float addition is not associative (explains why compilers cannot reassociate float loops from 5.9).
-  - *Zig*: SIMD with `@Vector`; float vs int reassociation experiment; profiling with `perf`.
-  - *Status*: **In Progress**
-
-### Next
 - **S1W10: Linking — Ch. 7** (pp. 634-673)
   - *Theory*: Static linking, ELF relocatable objects, symbols and resolution, relocation, executables and loading, shared libraries, PIC (GOT/PLT), interpositioning.
   - *Zig*: Multi-module `build.zig`, `@cImport`, static and dynamic library; inspect with `readelf`, `nm`, `objdump`.
-  - *Status*: Planned
+  - *Status*: **In Progress**
+
+### Next
 
 - **S1W11: Exceptional Control Flow I — Ch. 8.1-8.4** (pp. 680-712)
   - *Theory*: Exceptions (interrupts, traps, faults, aborts), processes, system calls and error handling, `fork`, `execve`, `waitpid`, zombies.
@@ -371,7 +368,7 @@ Statuses: `Done`, `In Progress`, `Planned (SxWy)`, `Deferred → SxWy`, `Skipped
 | 1 | 1.1-1.10 Tour of computer systems | 36-61 | S1W1 | Done |
 | 2 | 2.1-2.2 Storage, integer representations | 68-113 | S1W2 | Done |
 | 2 | 2.3 Integer arithmetic | 113-135 | S1W2 | Done |
-| 2 | 2.4 Floating point | 135-151 | S1W9 | Deferred → S1W9 |
+| 2 | 2.4 Floating point | 135-151 | S1W9 | Done |
 | 3 | 3.1-3.5 Data formats, access, arithmetic | 187-218 | S1W3 | Done |
 | 3 | 3.6 Control | 218-250 | S1W4 | Done |
 | 3 | 3.7 Procedures | 250-264 | S1W5 | Done |
@@ -381,7 +378,7 @@ Statuses: `Done`, `In Progress`, `Planned (SxWy)`, `Deferred → SxWy`, `Skipped
 | 4 | 4.1, 4.3.1, 4.4, 4.5 hazards — overview | 352-457 | S1W7 | Done |
 | 4 | 4.2 HCL, SEQ/PIPE hardware details | 368-457 | — | Optional |
 | 5 | 5.1-5.9 Optimization, ILP, unrolling | 478-524 | S1W8 | Done |
-| 5 | 5.10-5.15 Limits, memory perf, profiling | 524-544 | S1W9 | Planned |
+| 5 | 5.10-5.15 Limits, memory perf, profiling | 524-544 | S1W9 | Done |
 | 6 | 6.1-6.3 Storage, locality, hierarchy | 554-586 | S1W6 | Done |
 | 6 | 6.4-6.7 Caches, cache-friendly code, memory mountain | 586-616 | S1W6 | Done |
 | 7 | 7.1-7.15 Linking | 634-673 | S1W10 | Planned |
