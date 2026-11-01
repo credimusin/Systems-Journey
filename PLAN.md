@@ -53,19 +53,15 @@ Developing Staff/Senior-level engineering intuition at the intersection of:
 - **S1W7** — Ch. 4 Processor Architecture & Hazards (Y86-64, PIPE, Forwarding, Load-Use). Zig decoder & hazard detector. — **Done**
 - **S1W8** — Ch. 5.1-5.9 Optimizing Performance (Out-of-order, latency vs throughput, loop unrolling, multiple accumulators). Zig 4x4 benchmark. — **Done**
 - **S1W9** — Ch. 5.10-5.14 + Ch. 2.4 Optimizing Performance II & Floating Point (Register spilling, non-associativity of float, SIMD `@Vector`, instruction decoding `vaddps`/`vaddss`). — **Done**
+- **S1W10** — Ch. 7 Linking (Static/dynamic linking, ELF sections, symbol resolution, PC-relative relocation, PIC PLT/GOT, `LD_PRELOAD`, multi-module `build.zig` & `addTranslateC`). — **Done**
 
 ### Current
-- **S1W10: Linking — Ch. 7** (pp. 634-673)
-  - *Theory*: Static linking, ELF relocatable objects, symbols and resolution, relocation, executables and loading, shared libraries, PIC (GOT/PLT), interpositioning.
-  - *Zig*: Multi-module `build.zig`, `@cImport`, static and dynamic library; inspect with `readelf`, `nm`, `objdump`.
-  - *Status*: **In Progress**
-
-### Next
-
 - **S1W11: Exceptional Control Flow I — Ch. 8.1-8.4** (pp. 680-712)
   - *Theory*: Exceptions (interrupts, traps, faults, aborts), processes, system calls and error handling, `fork`, `execve`, `waitpid`, zombies.
   - *Zig*: Spawn and reap child processes via `std.posix`; watch with `strace -f`.
-  - *Status*: Planned
+  - *Status*: **In Progress**
+
+### Next
 
 - **S1W12: Exceptional Control Flow II — Ch. 8.5-8.8** (pp. 712-739)
   - *Theory*: Signals: sending, receiving, blocking, safe handlers, races; nonlocal jumps — overview.
@@ -381,7 +377,7 @@ Statuses: `Done`, `In Progress`, `Planned (SxWy)`, `Deferred → SxWy`, `Skipped
 | 5 | 5.10-5.15 Limits, memory perf, profiling | 524-544 | S1W9 | Done |
 | 6 | 6.1-6.3 Storage, locality, hierarchy | 554-586 | S1W6 | Done |
 | 6 | 6.4-6.7 Caches, cache-friendly code, memory mountain | 586-616 | S1W6 | Done |
-| 7 | 7.1-7.15 Linking | 634-673 | S1W10 | Planned |
+| 7 | 7.1-7.15 Linking | 634-673 | S1W10 | Done |
 | 8 | 8.1-8.4 Exceptions, processes, process control | 680-712 | S1W11 | Planned |
 | 8 | 8.5-8.8 Signals, nonlocal jumps | 712-739 | S1W12 | Planned |
 | 9 | 9.1-9.8 VM, translation, mmap | 750-786 | S1W13 | Planned |
