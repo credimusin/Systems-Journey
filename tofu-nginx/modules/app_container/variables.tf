@@ -1,23 +1,23 @@
 variable "container_name" {
   description = "The name for Podman container"
-  type = string
+  type        = string
 }
 
 variable "nginx_image" {
   description = "Docker image and tag for Nginx"
-  type = string
-  default = "nginx:alpine"
+  type        = string
+  default     = "nginx:alpine"
 }
 
 variable "external_port" {
   description = "External port on host"
-  type = number
+  type        = number
 }
 
 variable "internal_port" {
   description = "Internal port in container"
-  type = number
-  default = 80
+  type        = number
+  default     = 80
 }
 
 variable "env_name" {
