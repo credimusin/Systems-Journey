@@ -8,3 +8,9 @@ output "environments" {
     }
   }
 }
+
+output "raw_token" {
+  description = "Auth token output"
+  value = var.auth_token
+  sensitive = true
+}

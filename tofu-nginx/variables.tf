@@ -35,3 +35,15 @@ variable "environments" {
     }
   }
 }
+
+variable "auth_token" {
+  description = "Secret auth token"
+  type = string
+  sensitive = true
+}
+
+variable "state_encryption_passphrase" {
+  description = "Master passphrase for state encryption"
+  type = string
+  sensitive = true
+}

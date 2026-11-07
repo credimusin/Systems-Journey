@@ -1,5 +1,21 @@
 terraform {
   required_version = ">= 1.8.0"
+
+  encryption {
+    key_provider "pbkdf2" "passphrase_key" {
+      passphrase = var.state_encryption_passphrase
+    }
+
+    method "aes_gcm" "secure_aes" {
+      keys = key_provider.pbkdf2.passphrase_key
+    }
+
+    state {
+      method = method.aes_gcm.secure_aes
+      enforced = true
+    }
+  }
+  
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"

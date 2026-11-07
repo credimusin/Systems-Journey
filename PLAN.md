@@ -55,19 +55,15 @@ Developing Staff/Senior-level engineering intuition at the intersection of:
 - **S1W9** — Ch. 5.10-5.14 + Ch. 2.4 Optimizing Performance II & Floating Point (Register spilling, non-associativity of float, SIMD `@Vector`, instruction decoding `vaddps`/`vaddss`). — **Done**
 - **S1W10** — Ch. 7 Linking (Static/dynamic linking, ELF sections, symbol resolution, PC-relative relocation, PIC PLT/GOT, `LD_PRELOAD`, multi-module `build.zig` & `addTranslateC`). — **Done**
 - **S1W11** — Ch. 8.1-8.4 Exceptional Control Flow I (Exceptions: interrupts/traps/faults/aborts, processes, `fork`, `execve`, `waitpid`, zombies, `strace -f` in Zig `std.os.linux`). — **Done**
+- **S1W12** — Ch. 8.5-8.8 Exceptional Control Flow II (Signals: sending, receiving, blocking, safe handlers, SIGCHLD 1-bit collapsing & zombie reaping, graceful shutdown in Zig `std.os.linux`). — **Done**
 
 ### Current
-- **S1W12: Exceptional Control Flow II — Ch. 8.5-8.8** (pp. 712-739)
-  - *Theory*: Signals: sending, receiving, blocking, safe handlers, races; nonlocal jumps — overview.
-  - *Zig*: Graceful shutdown on `SIGINT`/`SIGTERM` (async-signal-safe handler + flag).
-  - *Status*: **In Progress**
-
-### Next
-
 - **S1W13: Virtual Memory I — Ch. 9.1-9.8** (pp. 750-786)
   - *Theory*: Address spaces, VM as cache / memory management / protection tool, address translation, page tables, TLB, Core i7/Linux case study, memory mapping (`mmap`).
   - *Zig*: Read `/proc/self/maps`; `mmap` a file and compare with `read`; observe page faults (`/usr/bin/time -v`, `perf stat`).
   - *Status*: Planned
+
+### Next
 
 - **S1W14: Virtual Memory II — Ch. 9.9-9.12** (pp. 786-819)
   - *Theory*: Dynamic memory allocation: implicit/explicit free lists, fragmentation, coalescing, segregated fits; garbage collection — overview; common memory bugs.
@@ -307,8 +303,8 @@ Independent of CS:APP weekday sprints. Covers `[[23.00 DevOps - Table of content
 | I6 | `templatefile`, volumes, persistent storage | `23.21.2`, `23.31` | Done |
 | I7 | CI pipeline for OpenTofu: fmt, validate, lint, drift detection | `23.41.1`, `23.83.1` | Done |
 | I8 | Lifecycle (`create_before_destroy`, `prevent_destroy`), `-parallelism` | `23.21` | Done |
-| I9 | Secrets: `TF_VAR_*`, sensitive values, state encryption | `23.21`, `23.41.3` | Next |
-| I10 | Container internals: namespaces, cgroups (pairs with CS:APP Ch. 8-9) | `23.11.1`, `23.11.2` | Planned |
+| I9 | Secrets: `TF_VAR_*`, sensitive values, state encryption | `23.21`, `23.41.3` | Done |
+| I10 | Container internals: namespaces, cgroups (pairs with CS:APP Ch. 8-9) | `23.11.1`, `23.11.2` | Next |
 | I11 | Network virtualization: netns, veth, bridges, iptables/nftables (pairs with CS:APP Ch. 8-10) | `23.13.1`, `23.31.3` | Planned |
 | I12 | **Stage 1 Infra Capstone**: multi-tier testbed (reverse proxy, app, isolated networks) | `23.14.2`, `23.31` | Planned |
 
@@ -375,7 +371,7 @@ Statuses: `Done`, `In Progress`, `Planned (SxWy)`, `Deferred → SxWy`, `Skipped
 | 6 | 6.4-6.7 Caches, cache-friendly code, memory mountain | 586-616 | S1W6 | Done |
 | 7 | 7.1-7.15 Linking | 634-673 | S1W10 | Done |
 | 8 | 8.1-8.4 Exceptions, processes, process control | 680-712 | S1W11 | Done |
-| 8 | 8.5-8.8 Signals, nonlocal jumps | 712-739 | S1W12 | In Progress |
+| 8 | 8.5-8.8 Signals, nonlocal jumps | 712-739 | S1W12 | Done |
 | 9 | 9.1-9.8 VM, translation, mmap | 750-786 | S1W13 | Planned |
 | 9 | 9.9-9.12 Dynamic allocation, GC, memory bugs | 786-819 | S1W14 | Planned |
 | 10 | 10.1-10.12 System-level I/O | 830-851 | S1W15 | Planned |
